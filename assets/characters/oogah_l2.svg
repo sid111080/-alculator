@@ -1,0 +1,26 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="100" cy="118" rx="60" ry="65" fill="#ff8c00" stroke="#4a0000" stroke-width="4"/>
+  <path d="M 65 85 Q 72 110 68 140" fill="none" stroke="#3d1c00" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+  <path d="M 135 80 Q 140 105 145 130" fill="none" stroke="#3d1c00" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+  <ellipse cx="100" cy="58" rx="45" ry="40" fill="#ff8c00" stroke="#4a0000" stroke-width="4" transform="rotate(-3 100 58)"/>
+  <circle cx="78" cy="52" r="18" fill="#ff0000" stroke="#4a0000" stroke-width="2.5"/>
+  <circle cx="78" cy="52" r="9" fill="#000"/>
+  <circle cx="82" cy="47" r="3.5" fill="#fff" opacity="0.9"/>
+  <circle cx="122" cy="50" r="20" fill="#ff0000" stroke="#4a0000" stroke-width="2.5"/>
+  <circle cx="122" cy="50" r="10" fill="#000"/>
+  <circle cx="127" cy="45" r="3.5" fill="#fff" opacity="0.9"/>
+  <path d="M 62 78 Q 100 108 138 78" fill="#2d0000" stroke="#4a0000" stroke-width="3.5"/>
+  <polygon points="70,79 76,95 82,79" fill="#ffffcc" stroke="#000" stroke-width="1.5"/>
+  <polygon points="82,79 90,98 98,79" fill="#ffffcc" stroke="#000" stroke-width="1.5"/>
+  <polygon points="98,79 106,94 114,79" fill="#ffffcc" stroke="#000" stroke-width="1.5"/>
+  <polygon points="114,79 122,97 130,79" fill="#ffffcc" stroke="#000" stroke-width="1.5"/>
+  <ellipse cx="58" cy="45" rx="7" ry="5" fill="#ffff00" opacity="0.6"/>
+  <ellipse cx="142" cy="42" rx="6" ry="5" fill="#ffff00" opacity="0.6"/>
+  <path d="M 78 25 Q 72 10 85 22" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+  <path d="M 95 22 Q 100 8 108 22" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+  <path d="M 112 24 Q 120 12 125 26" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+  <ellipse cx="75" cy="182" rx="16" ry="8" fill="#ff8c00" stroke="#4a0000" stroke-width="3"/>
+  <ellipse cx="128" cy="182" rx="16" ry="8" fill="#ff8c00" stroke="#4a0000" stroke-width="3"/>
+  <ellipse cx="38" cy="118" rx="9" ry="13" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+  <ellipse cx="162" cy="115" rx="9" ry="13" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+</svg>

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter *)",
+      "Bash(mkdir *)",
+      "Bash(cd *)",
+      "Bash(dart *)",
+      "Bash(tail *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(echo *)"
+    ]
+  },
+  "$version": 4
+}

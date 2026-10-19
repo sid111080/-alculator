@@ -1,0 +1,711 @@
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #111827;
+    color: #eee;
+    padding: 40px 20px;
+  }
+  h1 { text-align: center; font-size: 2rem; margin-bottom: 6px; color: #f5f5f5; }
+  .subtitle { text-align: center; color: #9ca3af; margin-bottom: 48px; font-size: 0.95rem; }
+  .character-section {
+    max-width: 1100px;
+    margin: 0 auto 56px;
+  }
+  .character-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    color: #e5e7eb;
+  }
+  .character-section .trait {
+    color: #6b7280;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  .level-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 768px) {
+    .level-row { grid-template-columns: 1fr; }
+  }
+  .level-card {
+    background: #1f2937;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #374151;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .level-card:hover {
+    transform: translateY(-3px);
+    border-color: #6366f1;
+  }
+  .level-card svg {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+    display: block;
+  }
+  .level-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .badge-1 { background: #065f46; color: #6ee7b7; }
+  .badge-2 { background: #1e3a5f; color: #93c5fd; }
+  .badge-3 { background: #4a1a4a; color: #e9a0f4; }
+  .level-card h3 { font-size: 1rem; margin-bottom: 4px; }
+  .level-card .size { color: #6b7280; font-size: 0.75rem; margin-bottom: 6px; }
+  .level-card .desc { color: #9ca3af; font-size: 0.78rem; line-height: 1.4; }
+  .level-card .anim { color: #6b7280; font-size: 0.72rem; margin-top: 8px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<h1>👾 Funny Ugly Monster — Уровни роста</h1>
+<p class="subtitle">4 персонажа × 3 уровня (Малыш → Подросток → Взрослый)</p>
+
+<!-- ==================== GapTooth McGoo ==================== -->
+<div class="character-section">
+  <h2>GapTooth McGoo</h2>
+  <p class="trait">Озорной, нахальный, любит подшучивать</p>
+  <div class="level-row">
+
+    <!-- McGoo Level 1: Baby -->
+    <div class="level-card">
+      <span class="level-badge badge-1">Уровень 1</span>
+      <h3>Малыш</h3>
+      <p class="size">12–15 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: muted lime, small, baby proportions (big head, tiny body) -->
+        <ellipse cx="100" cy="125" rx="45" ry="42" fill="#a8d44a" stroke="#333" stroke-width="2"/>
+        <!-- Soft olive spots, no hard edges -->
+        <ellipse cx="85" cy="115" rx="10" ry="7" fill="#7a8b3a" opacity="0.4"/>
+        <ellipse cx="115" cy="135" rx="12" ry="8" fill="#7a8b3a" opacity="0.35"/>
+        <!-- Big head (baby proportion) -->
+        <ellipse cx="100" cy="68" rx="42" ry="38" fill="#a8d44a" stroke="#333" stroke-width="2"/>
+        <!-- Eyes: yellow-amber, soft, no bright accents -->
+        <ellipse cx="82" cy="62" rx="12" ry="14" fill="#f5d030" stroke="#333" stroke-width="1.5"/>
+        <circle cx="83" cy="63" r="6" fill="#c8860a"/>
+        <circle cx="83" cy="63" r="3" fill="#222"/>
+        <circle cx="86" cy="59" r="2" fill="#fff" opacity="0.7"/>
+        <ellipse cx="118" cy="60" rx="11" ry="13" fill="#f5d030" stroke="#333" stroke-width="1.5"/>
+        <circle cx="119" cy="61" r="5.5" fill="#c8860a"/>
+        <circle cx="119" cy="61" r="2.8" fill="#222"/>
+        <circle cx="122" cy="57" r="2" fill="#fff" opacity="0.7"/>
+        <!-- Small cute gap tooth (not grotesque) -->
+        <path d="M 82 82 Q 100 95 118 82" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        <rect x="88" y="82" width="7" height="8" rx="2" fill="#fff" stroke="#333" stroke-width="1.5"/>
+        <rect x="100" y="82" width="7" height="8" rx="2" fill="#fff" stroke="#333" stroke-width="1.5"/>
+        <!-- Barely visible pink marks -->
+        <line x1="68" y1="75" x2="74" y2="73" stroke="#f0a0b0" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <line x1="126" y1="73" x2="132" y2="75" stroke="#f0a0b0" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <!-- Small bumps on head -->
+        <path d="M 88 35 Q 92 25 96 35" fill="#a8d44a" stroke="#333" stroke-width="1.5"/>
+        <path d="M 108 33 Q 113 22 118 34" fill="#a8d44a" stroke="#333" stroke-width="1.5"/>
+        <!-- Tiny feet -->
+        <ellipse cx="85" cy="165" rx="12" ry="6" fill="#a8d44a" stroke="#333" stroke-width="2"/>
+        <ellipse cx="115" cy="165" rx="12" ry="6" fill="#a8d44a" stroke="#333" stroke-width="2"/>
+        <!-- Tiny stubby arms -->
+        <ellipse cx="55" cy="125" rx="7" ry="10" fill="#a8d44a" stroke="#333" stroke-width="1.5"/>
+        <ellipse cx="145" cy="125" rx="7" ry="10" fill="#a8d44a" stroke="#333" stroke-width="1.5"/>
+      </svg>
+      <p class="desc">Приглушённый лайм, мягкие пятна, тонкий контур. Щель милая, не гротескная. Плюшевая текстура.</p>
+      <p class="anim">Подпрыгивает, трёт глаза лапками, хихикает</p>
+    </div>
+
+    <!-- McGoo Level 2: Teen -->
+    <div class="level-card">
+      <span class="level-badge badge-2">Уровень 2</span>
+      <h3>Подросток</h3>
+      <p class="size">22–25 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: brighter lime, more elongated, longer limbs -->
+        <ellipse cx="100" cy="120" rx="58" ry="62" fill="#9acd32" stroke="#000" stroke-width="4"/>
+        <!-- Contrasting olive spots -->
+        <ellipse cx="72" cy="100" rx="14" ry="10" fill="#556b2f" opacity="0.6"/>
+        <ellipse cx="130" cy="140" rx="16" ry="11" fill="#556b2f" opacity="0.55"/>
+        <ellipse cx="110" cy="80" rx="10" ry="8" fill="#556b2f" opacity="0.5"/>
+        <!-- Head: slightly less baby-proportion -->
+        <ellipse cx="100" cy="62" rx="44" ry="40" fill="#9acd32" stroke="#000" stroke-width="4"/>
+        <!-- Eyes: saturated yellow with orange iris -->
+        <ellipse cx="80" cy="55" rx="15" ry="17" fill="#ffe600" stroke="#000" stroke-width="2.5"/>
+        <circle cx="82" cy="56" r="8" fill="#ff8c00"/>
+        <circle cx="82" cy="56" r="4" fill="#000"/>
+        <circle cx="86" cy="51" r="3" fill="#fff" opacity="0.8"/>
+        <ellipse cx="120" cy="53" rx="13" ry="15" fill="#ffe600" stroke="#000" stroke-width="2.5"/>
+        <circle cx="121" cy="54" r="7" fill="#ff8c00"/>
+        <circle cx="121" cy="54" r="3.5" fill="#000"/>
+        <circle cx="124" cy="49" r="2.5" fill="#fff" opacity="0.8"/>
+        <!-- Wider grin, more pronounced gap -->
+        <path d="M 72 78 Q 100 100 128 78" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+        <rect x="80" y="78" width="10" height="11" rx="2" fill="#fff" stroke="#000" stroke-width="2"/>
+        <!-- Bigger gap -->
+        <rect x="98" y="78" width="10" height="11" rx="2" fill="#fff" stroke="#000" stroke-width="2"/>
+        <rect x="114" y="78" width="9" height="10" rx="2" fill="#fff" stroke="#000" stroke-width="2"/>
+        <!-- Clear pink accents on cheeks and ear tips -->
+        <line x1="58" y1="68" x2="66" y2="65" stroke="#ff69b4" stroke-width="3" stroke-linecap="round"/>
+        <line x1="56" y1="75" x2="64" y2="72" stroke="#ff69b4" stroke-width="3" stroke-linecap="round"/>
+        <line x1="134" y1="65" x2="142" y2="68" stroke="#ff69b4" stroke-width="3" stroke-linecap="round"/>
+        <line x1="136" y1="72" x2="144" y2="75" stroke="#ff69b4" stroke-width="3" stroke-linecap="round"/>
+        <!-- Mischievous details: one hair sticking up, asymmetrical brow -->
+        <path d="M 85 28 Q 82 15 90 26" fill="#9acd32" stroke="#000" stroke-width="2.5"/>
+        <path d="M 108 26 Q 115 12 122 28" fill="#9acd32" stroke="#000" stroke-width="2.5"/>
+        <path d="M 65 42 Q 80 35 92 42" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 108 40 Q 122 32 135 42" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Longer feet -->
+        <ellipse cx="78" cy="182" rx="16" ry="8" fill="#9acd32" stroke="#000" stroke-width="3"/>
+        <ellipse cx="125" cy="182" rx="16" ry="8" fill="#9acd32" stroke="#000" stroke-width="3"/>
+        <!-- Arms slightly longer -->
+        <ellipse cx="42" cy="120" rx="9" ry="14" fill="#9acd32" stroke="#000" stroke-width="2.5"/>
+        <ellipse cx="158" cy="118" rx="9" ry="14" fill="#9acd32" stroke="#000" stroke-width="2.5"/>
+      </svg>
+      <p class="desc">Яркий лайм, контрастные пятна, чёткие розовые штрихи. Щель заметнее, улыбка шире. Асимметричная бровь.</p>
+      <p class="anim">Делает рывки, дразнится, показывает язык</p>
+    </div>
+
+    <!-- McGoo Level 3: Adult -->
+    <div class="level-card">
+      <span class="level-badge badge-3">Уровень 3</span>
+      <h3>Взрослый</h3>
+      <p class="size">35–40 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: neon lime, grotesque, one leg longer, asymmetric shoulders -->
+        <ellipse cx="98" cy="118" rx="68" ry="72" fill="#7fff00" stroke="#000" stroke-width="6"/>
+        <!-- Dark olive spots with hard edges -->
+        <ellipse cx="65" cy="95" rx="16" ry="12" fill="#3d4f1a" opacity="0.8"/>
+        <ellipse cx="135" cy="145" rx="20" ry="14" fill="#3d4f1a" opacity="0.75"/>
+        <ellipse cx="115" cy="75" rx="12" ry="9" fill="#3d4f1a" opacity="0.7"/>
+        <!-- Head: slightly tilted (asymmetry) -->
+        <ellipse cx="100" cy="55" rx="46" ry="42" fill="#7fff00" stroke="#000" stroke-width="6"/>
+        <!-- Eyes: bright yellow with orange GLOW -->
+        <ellipse cx="78" cy="48" rx="17" ry="19" fill="#ffe600" stroke="#000" stroke-width="3.5"/>
+        <circle cx="80" cy="49" r="9" fill="#ff6600"/>
+        <circle cx="80" cy="49" r="4.5" fill="#000"/>
+        <circle cx="84" cy="43" r="3.5" fill="#fff" opacity="0.9"/>
+        <!-- Orange glow around eye -->
+        <ellipse cx="80" cy="49" rx="20" ry="22" fill="none" stroke="#ff8c00" stroke-width="1.5" opacity="0.4"/>
+        <ellipse cx="124" cy="46" rx="15" ry="17" fill="#ffe600" stroke="#000" stroke-width="3.5"/>
+        <circle cx="125" cy="47" r="8" fill="#ff6600"/>
+        <circle cx="125" cy="47" r="4" fill="#000"/>
+        <circle cx="129" cy="42" r="3" fill="#fff" opacity="0.9"/>
+        <ellipse cx="125" cy="47" rx="18" ry="20" fill="none" stroke="#ff8c00" stroke-width="1.5" opacity="0.4"/>
+        <!-- Wide toothy grin, big gap -->
+        <path d="M 62 72 Q 100 105 138 72" fill="#1a1a00" stroke="#000" stroke-width="4"/>
+        <rect x="70" y="72" width="12" height="14" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <!-- Big gap -->
+        <rect x="90" y="72" width="12" height="14" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <rect x="108" y="72" width="11" height="13" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <rect x="122" y="72" width="9" height="11" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <!-- Large pink "graffiti" marks -->
+        <line x1="50" y1="60" x2="62" y2="55" stroke="#ff1493" stroke-width="5" stroke-linecap="round"/>
+        <line x1="48" y1="70" x2="60" y2="67" stroke="#ff1493" stroke-width="5" stroke-linecap="round"/>
+        <line x1="140" y1="55" x2="152" y2="60" stroke="#ff1493" stroke-width="5" stroke-linecap="round"/>
+        <line x1="142" y1="65" x2="154" y2="70" stroke="#ff1493" stroke-width="5" stroke-linecap="round"/>
+        <!-- Experience marks: scratch on cheek, worn shoulder -->
+        <line x1="55" y1="85" x2="68" y2="80" stroke="#3d4f1a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 140 90 Q 148 85 155 92" fill="none" stroke="#3d4f1a" stroke-width="2.5" opacity="0.6"/>
+        <!-- Messy hair strand -->
+        <path d="M 82 20 Q 75 5 88 18" fill="#7fff00" stroke="#000" stroke-width="3"/>
+        <path d="M 105 18 Q 115 2 120 20" fill="#7fff00" stroke="#000" stroke-width="3"/>
+        <!-- Asymmetric feet (one longer) -->
+        <ellipse cx="72" cy="188" rx="18" ry="9" fill="#7fff00" stroke="#000" stroke-width="4"/>
+        <ellipse cx="130" cy="185" rx="20" ry="10" fill="#7fff00" stroke="#000" stroke-width="4"/>
+        <!-- Arms -->
+        <ellipse cx="35" cy="115" rx="10" ry="15" fill="#7fff00" stroke="#000" stroke-width="3.5"/>
+        <ellipse cx="162" cy="112" rx="10" ry="15" fill="#7fff00" stroke="#000" stroke-width="3.5"/>
+      </svg>
+      <p class="desc">Неоновый лайм, резкие пятна, жирный рваный контур. Оранжевое свечение глаз, граффити-розовые мазки, царапина на щеке.</p>
+      <p class="anim">Уверенно ходит, подшучивает, ломает интерфейс</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== Oogah Boogah ==================== -->
+<div class="character-section">
+  <h2>Oogah Boogah</h2>
+  <p class="trait">Хаотичный, энергичный, непредсказуемый</p>
+  <div class="level-row">
+
+    <!-- Oogah Level 1: Baby -->
+    <div class="level-card">
+      <span class="level-badge badge-1">Уровень 1</span>
+      <h3>Малыш</h3>
+      <p class="size">10–14 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: warm muted orange, small, round, soft lines -->
+        <ellipse cx="100" cy="120" rx="48" ry="50" fill="#e8a040" stroke="#8b5e3c" stroke-width="2"/>
+        <!-- Smooth brown streaks -->
+        <path d="M 75 100 Q 80 120 78 140" fill="none" stroke="#6b3a1a" stroke-width="3" opacity="0.3" stroke-linecap="round"/>
+        <path d="M 125 95 Q 128 115 130 135" fill="none" stroke="#6b3a1a" stroke-width="3" opacity="0.3" stroke-linecap="round"/>
+        <!-- Head: round, big (baby) -->
+        <ellipse cx="100" cy="65" rx="42" ry="38" fill="#e8a040" stroke="#8b5e3c" stroke-width="2"/>
+        <!-- Eyes: wide open but NOT bulging, reddish-brown -->
+        <ellipse cx="82" cy="58" rx="14" ry="16" fill="#c04030" stroke="#8b5e3c" stroke-width="1.5"/>
+        <circle cx="83" cy="59" r="7" fill="#2a1000"/>
+        <circle cx="83" cy="59" r="3.5" fill="#000"/>
+        <circle cx="86" cy="55" r="2.5" fill="#fff" opacity="0.7"/>
+        <ellipse cx="118" cy="56" rx="13" ry="15" fill="#c04030" stroke="#8b5e3c" stroke-width="1.5"/>
+        <circle cx="119" cy="57" r="6.5" fill="#2a1000"/>
+        <circle cx="119" cy="57" r="3.2" fill="#000"/>
+        <circle cx="122" cy="53" r="2.5" fill="#fff" opacity="0.7"/>
+        <!-- Mouth: slightly open, teeth barely visible -->
+        <ellipse cx="100" cy="82" rx="10" ry="6" fill="#4a2010" stroke="#8b5e3c" stroke-width="1.5"/>
+        <rect x="94" y="79" width="5" height="4" rx="1" fill="#fff" stroke="#8b5e3c" stroke-width="1" opacity="0.6"/>
+        <rect x="101" y="79" width="5" height="4" rx="1" fill="#fff" stroke="#8b5e3c" stroke-width="1" opacity="0.6"/>
+        <!-- Pale yellow highlights (subtle) -->
+        <ellipse cx="70" cy="50" rx="6" ry="4" fill="#f5e8a0" opacity="0.3"/>
+        <ellipse cx="130" cy="48" rx="5" ry="4" fill="#f5e8a0" opacity="0.3"/>
+        <!-- Small hair tufts -->
+        <path d="M 85 32 Q 82 22 90 30" fill="#e8a040" stroke="#8b5e3c" stroke-width="1.5"/>
+        <path d="M 100 30 Q 103 18 108 30" fill="#e8a040" stroke="#8b5e3c" stroke-width="1.5"/>
+        <path d="M 115 32 Q 120 22 122 33" fill="#e8a040" stroke="#8b5e3c" stroke-width="1.5"/>
+        <!-- Tiny feet -->
+        <ellipse cx="85" cy="168" rx="13" ry="6" fill="#e8a040" stroke="#8b5e3c" stroke-width="2"/>
+        <ellipse cx="118" cy="168" rx="13" ry="6" fill="#e8a040" stroke="#8b5e3c" stroke-width="2"/>
+        <!-- Tiny arms -->
+        <ellipse cx="55" cy="120" rx="7" ry="10" fill="#e8a040" stroke="#8b5e3c" stroke-width="1.5"/>
+        <ellipse cx="145" cy="120" rx="7" ry="10" fill="#e8a040" stroke="#8b5e3c" stroke-width="1.5"/>
+      </svg>
+      <p class="desc">Тёплый оранжевый, плавные разводы, мягкий контур. Глаза широко распахнуты, но не выпучены. Плюшевый.</p>
+      <p class="anim">Крутится, хлопает глазами, «уга-буга»</p>
+    </div>
+
+    <!-- Oogah Level 2: Teen -->
+    <div class="level-card">
+      <span class="level-badge badge-2">Уровень 2</span>
+      <h3>Подросток</h3>
+      <p class="size">20–24 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: saturated orange, more angular, grotesque proportions -->
+        <ellipse cx="100" cy="118" rx="60" ry="65" fill="#ff8c00" stroke="#4a0000" stroke-width="4"/>
+        <!-- Contrasting dark brown streaks -->
+        <path d="M 65 85 Q 72 110 68 140" fill="none" stroke="#3d1c00" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+        <path d="M 135 80 Q 140 105 145 130" fill="none" stroke="#3d1c00" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+        <!-- Head: slightly tilted (crazy lean) -->
+        <ellipse cx="100" cy="58" rx="45" ry="40" fill="#ff8c00" stroke="#4a0000" stroke-width="4" transform="rotate(-3 100 58)"/>
+        <!-- Eyes: noticeably bulging, bright red with black pupils -->
+        <circle cx="78" cy="52" r="18" fill="#ff0000" stroke="#4a0000" stroke-width="2.5"/>
+        <circle cx="78" cy="52" r="9" fill="#000"/>
+        <circle cx="82" cy="47" r="3.5" fill="#fff" opacity="0.9"/>
+        <circle cx="122" cy="50" r="20" fill="#ff0000" stroke="#4a0000" stroke-width="2.5"/>
+        <circle cx="122" cy="50" r="10" fill="#000"/>
+        <circle cx="127" cy="45" r="3.5" fill="#fff" opacity="0.9"/>
+        <!-- Wide mouth, bigger teeth -->
+        <path d="M 62 78 Q 100 108 138 78" fill="#2d0000" stroke="#4a0000" stroke-width="3.5"/>
+        <polygon points="70,79 76,95 82,79" fill="#ffffcc" stroke="#000" stroke-width="1.5"/>
+        <polygon points="82,79 90,98 98,79" fill="#ffffcc" stroke="#000" stroke-width="1.5"/>
+        <polygon points="98,79 106,94 114,79" fill="#ffffcc" stroke="#000" stroke-width="1.5"/>
+        <polygon points="114,79 122,97 130,79" fill="#ffffcc" stroke="#000" stroke-width="1.5"/>
+        <!-- Neon yellow highlights (sharp) -->
+        <ellipse cx="58" cy="45" rx="7" ry="5" fill="#ffff00" opacity="0.6"/>
+        <ellipse cx="142" cy="42" rx="6" ry="5" fill="#ffff00" opacity="0.6"/>
+        <!-- Wild hair -->
+        <path d="M 78 25 Q 72 10 85 22" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+        <path d="M 95 22 Q 100 8 108 22" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+        <path d="M 112 24 Q 120 12 125 26" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+        <!-- Feet -->
+        <ellipse cx="75" cy="182" rx="16" ry="8" fill="#ff8c00" stroke="#4a0000" stroke-width="3"/>
+        <ellipse cx="128" cy="182" rx="16" ry="8" fill="#ff8c00" stroke="#4a0000" stroke-width="3"/>
+        <!-- Arms -->
+        <ellipse cx="38" cy="118" rx="9" ry="13" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+        <ellipse cx="162" cy="115" rx="9" ry="13" fill="#ff8c00" stroke="#4a0000" stroke-width="2.5"/>
+      </svg>
+      <p class="desc">Насыщенный оранжевый, контрастные разводы, глаза выпучены. Пасть шире, зубы крупнее. Наклон головы.</p>
+      <p class="anim">Резко дёргается, безумные повороты, замирает в позе</p>
+    </div>
+
+    <!-- Oogah Level 3: Adult -->
+    <div class="level-card">
+      <span class="level-badge badge-3">Уровень 3</span>
+      <h3>Взрослый</h3>
+      <p class="size">32–38 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: fluorescent orange, disproportionate (long limbs, big head) -->
+        <ellipse cx="100" cy="115" rx="65" ry="70" fill="#ff6600" stroke="#2a0000" stroke-width="6"/>
+        <!-- Near-black streaks with torn edges -->
+        <path d="M 60 80 Q 68 105 62 140" fill="none" stroke="#1a0800" stroke-width="7" opacity="0.6" stroke-linecap="round"/>
+        <path d="M 140 75 Q 148 100 152 135" fill="none" stroke="#1a0800" stroke-width="6" opacity="0.6" stroke-linecap="round"/>
+        <path d="M 85 150 Q 95 160 110 155" fill="none" stroke="#1a0800" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+        <!-- Head: large, slightly tilted -->
+        <ellipse cx="100" cy="52" rx="48" ry="44" fill="#ff6600" stroke="#2a0000" stroke-width="6" transform="rotate(-4 100 52)"/>
+        <!-- Eyes: strongly bulging, crimson with white highlights -->
+        <circle cx="75" cy="45" r="22" fill="#cc0000" stroke="#2a0000" stroke-width="3"/>
+        <circle cx="75" cy="45" r="11" fill="#000"/>
+        <circle cx="80" cy="39" r="5" fill="#fff" opacity="0.9"/>
+        <circle cx="72" cy="50" r="3" fill="#fff" opacity="0.5"/>
+        <circle cx="125" cy="43" r="24" fill="#cc0000" stroke="#2a0000" stroke-width="3"/>
+        <circle cx="125" cy="43" r="12" fill="#000"/>
+        <circle cx="131" cy="37" r="5" fill="#fff" opacity="0.9"/>
+        <circle cx="122" cy="48" r="3" fill="#fff" opacity="0.5"/>
+        <!-- Huge mouth, sharp uneven teeth -->
+        <path d="M 52 72 Q 100 115 148 72" fill="#1a0000" stroke="#2a0000" stroke-width="4"/>
+        <polygon points="58,73 64,95 72,73" fill="#ffffcc" stroke="#000" stroke-width="2"/>
+        <polygon points="72,73 80,100 88,73" fill="#ffffcc" stroke="#000" stroke-width="2"/>
+        <polygon points="88,73 96,93 104,73" fill="#ffffcc" stroke="#000" stroke-width="2"/>
+        <polygon points="104,73 112,102 120,73" fill="#ffffcc" stroke="#000" stroke-width="2"/>
+        <polygon points="120,73 128,94 136,73" fill="#ffffcc" stroke="#000" stroke-width="2"/>
+        <polygon points="136,73 142,90 146,73" fill="#ffffcc" stroke="#000" stroke-width="2"/>
+        <!-- Large neon yellow highlights -->
+        <ellipse cx="52" cy="38" rx="10" ry="7" fill="#ffff00" opacity="0.7"/>
+        <ellipse cx="148" cy="35" rx="9" ry="6" fill="#ffff00" opacity="0.7"/>
+        <ellipse cx="100" cy="170" rx="8" ry="5" fill="#ffff00" opacity="0.4"/>
+        <!-- Wild hair, more tufts -->
+        <path d="M 72 15 Q 65 0 80 12" fill="#ff6600" stroke="#2a0000" stroke-width="3"/>
+        <path d="M 88 12 Q 92 0 100 12" fill="#ff6600" stroke="#2a0000" stroke-width="3"/>
+        <path d="M 105 12 Q 112 0 118 14" fill="#ff6600" stroke="#2a0000" stroke-width="3"/>
+        <path d="M 120 15 Q 130 2 135 17" fill="#ff6600" stroke="#2a0000" stroke-width="3"/>
+        <path d="M 135 20 Q 145 8 148 22" fill="#ff6600" stroke="#2a0000" stroke-width="3"/>
+        <!-- Long limbs (disproportionate) -->
+        <ellipse cx="30" cy="115" rx="10" ry="18" fill="#ff6600" stroke="#2a0000" stroke-width="3.5"/>
+        <ellipse cx="170" cy="112" rx="10" ry="18" fill="#ff6600" stroke="#2a0000" stroke-width="3.5"/>
+        <!-- Long feet -->
+        <ellipse cx="70" cy="185" rx="20" ry="10" fill="#ff6600" stroke="#2a0000" stroke-width="4"/>
+        <ellipse cx="132" cy="185" rx="20" ry="10" fill="#ff6600" stroke="#2a0000" stroke-width="4"/>
+      </svg>
+      <p class="desc">Флуоресцентный оранжевый, почти чёрные рваные разводы, алые глаза. Огромная пасть, неровные зубы. Неоновые блики.</p>
+      <p class="anim">Хаотично перемещается, «вихрь», «уга-буга-ха-ха», подмигивает</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== Wide Eyed Weirdo ==================== -->
+<div class="character-section">
+  <h2>Wide Eyed Weirdo</h2>
+  <p class="trait">Наивный, любопытный, немного растерянный</p>
+  <div class="level-row">
+
+    <!-- Weirdo Level 1: Baby -->
+    <div class="level-card">
+      <span class="level-badge badge-1">Уровень 1</span>
+      <h3>Малыш</h3>
+      <p class="size">11–15 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: soft pastel purple, round, small -->
+        <ellipse cx="100" cy="130" rx="42" ry="45" fill="#e8b8e8" stroke="#c0c0c0" stroke-width="2"/>
+        <!-- Barely visible grey-blue spots -->
+        <ellipse cx="85" cy="140" rx="8" ry="6" fill="#8a9ab0" opacity="0.25"/>
+        <ellipse cx="115" cy="150" rx="9" ry="7" fill="#8a9ab0" opacity="0.2"/>
+        <!-- Head: disproportionately large (baby) -->
+        <ellipse cx="100" cy="62" rx="42" ry="38" fill="#e8b8e8" stroke="#c0c0c0" stroke-width="2"/>
+        <!-- Huge innocent eyes: light turquoise -->
+        <ellipse cx="78" cy="55" rx="20" ry="24" fill="#80e8e0" stroke="#c0c0c0" stroke-width="1.5"/>
+        <circle cx="78" cy="55" r="10" fill="#006060"/>
+        <circle cx="78" cy="55" r="5" fill="#000"/>
+        <circle cx="83" cy="48" r="4" fill="#fff" opacity="0.8"/>
+        <ellipse cx="122" cy="53" rx="21" ry="25" fill="#80e8e0" stroke="#c0c0c0" stroke-width="1.5"/>
+        <circle cx="122" cy="53" r="11" fill="#006060"/>
+        <circle cx="122" cy="53" r="5.5" fill="#000"/>
+        <circle cx="127" cy="46" r="4" fill="#fff" opacity="0.8"/>
+        <!-- Pale pink shadows under eyes (subtle) -->
+        <ellipse cx="78" cy="78" rx="12" ry="4" fill="#f0c0d0" opacity="0.3"/>
+        <ellipse cx="122" cy="76" rx="13" ry="4" fill="#f0c0d0" opacity="0.3"/>
+        <!-- Tiny mouth: innocent -->
+        <ellipse cx="100" cy="90" rx="6" ry="4" fill="#d0a0a0" stroke="#c0c0c0" stroke-width="1.5"/>
+        <!-- Barely visible hairs -->
+        <line x1="85" y1="28" x2="82" y2="18" stroke="#f5f0c0" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="100" y1="26" x2="100" y2="15" stroke="#f5f0c0" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="115" y1="28" x2="118" y2="18" stroke="#f5f0c0" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        <!-- Slightly floppy ears -->
+        <ellipse cx="58" cy="50" rx="10" ry="8" fill="#e8b8e8" stroke="#c0c0c0" stroke-width="2" transform="rotate(-10 58 50)"/>
+        <ellipse cx="142" cy="48" rx="10" ry="8" fill="#e8b8e8" stroke="#c0c0c0" stroke-width="2" transform="rotate(10 142 48)"/>
+        <!-- Tiny feet -->
+        <ellipse cx="85" cy="174" rx="12" ry="6" fill="#e8b8e8" stroke="#c0c0c0" stroke-width="2"/>
+        <ellipse cx="118" cy="174" rx="12" ry="6" fill="#e8b8e8" stroke="#c0c0c0" stroke-width="2"/>
+        <!-- Tiny arms -->
+        <ellipse cx="56" cy="130" rx="7" ry="10" fill="#e8b8e8" stroke="#c0c0c0" stroke-width="1.5"/>
+        <ellipse cx="144" cy="130" rx="7" ry="10" fill="#e8b8e8" stroke="#c0c0c0" stroke-width="1.5"/>
+      </svg>
+      <p class="desc">Нежный пастельно-фиолетовый, едва заметные пятнышки, тонкий контур. Глаза огромные, но наивные. Плюшевый.</p>
+      <p class="anim">Медленно качает головой, моргает, замирает</p>
+    </div>
+
+    <!-- Weirdo Level 2: Teen -->
+    <div class="level-card">
+      <span class="level-badge badge-2">Уровень 2</span>
+      <h3>Подросток</h3>
+      <p class="size">21–26 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: richer purple with gradient feel, elongated -->
+        <ellipse cx="100" cy="128" rx="52" ry="58" fill="#dda0dd" stroke="#a0a0a0" stroke-width="3.5"/>
+        <!-- More visible grey-blue spots, asymmetric -->
+        <ellipse cx="72" cy="135" rx="12" ry="9" fill="#5a7090" opacity="0.5"/>
+        <ellipse cx="128" cy="150" rx="14" ry="10" fill="#5a7090" opacity="0.45"/>
+        <ellipse cx="100" cy="165" rx="9" ry="7" fill="#5a7090" opacity="0.4"/>
+        <!-- Head: still big but less baby-proportion -->
+        <ellipse cx="100" cy="58" rx="44" ry="40" fill="#dda0dd" stroke="#a0a0a0" stroke-width="3.5"/>
+        <!-- Eyes: even bigger, more "lost" look, bright turquoise with white highlights -->
+        <ellipse cx="76" cy="50" rx="24" ry="28" fill="#40e0d0" stroke="#a0a0a0" stroke-width="2.5"/>
+        <circle cx="76" cy="50" r="12" fill="#004d40"/>
+        <circle cx="76" cy="50" r="6" fill="#000"/>
+        <circle cx="82" cy="42" r="5" fill="#fff" opacity="0.9"/>
+        <circle cx="72" cy="55" r="3" fill="#fff" opacity="0.6"/>
+        <ellipse cx="124" cy="48" rx="26" ry="30" fill="#40e0d0" stroke="#a0a0a0" stroke-width="2.5"/>
+        <circle cx="124" cy="48" r="13" fill="#004d40"/>
+        <circle cx="124" cy="48" r="6.5" fill="#000"/>
+        <circle cx="130" cy="40" r="5" fill="#fff" opacity="0.9"/>
+        <circle cx="120" cy="53" r="3" fill="#fff" opacity="0.6"/>
+        <!-- Pink shadows: more visible -->
+        <ellipse cx="76" cy="78" rx="14" ry="5" fill="#f0a0c0" opacity="0.5"/>
+        <ellipse cx="124" cy="76" rx="15" ry="5" fill="#f0a0c0" opacity="0.5"/>
+        <!-- Slightly crooked mouth -->
+        <path d="M 94 88 Q 100 93 108 87" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round"/>
+        <!-- Visible hairs sticking out -->
+        <line x1="80" y1="25" x2="74" y2="12" stroke="#f5f5a0" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="95" y1="22" x2="92" y2="8" stroke="#f5f5a0" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="110" y1="23" x2="115" y2="10" stroke="#f5f5a0" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="125" y1="26" x2="132" y2="14" stroke="#f5f5a0" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Mismatched ears: one pointy, one round -->
+        <polygon points="58,42 42,25 62,38" fill="#dda0dd" stroke="#a0a0a0" stroke-width="2.5"/>
+        <circle cx="144" cy="42" r="11" fill="#dda0dd" stroke="#a0a0a0" stroke-width="2.5"/>
+        <!-- Feet -->
+        <ellipse cx="80" cy="185" rx="14" ry="7" fill="#dda0dd" stroke="#a0a0a0" stroke-width="3"/>
+        <ellipse cx="122" cy="185" rx="14" ry="7" fill="#dda0dd" stroke="#a0a0a0" stroke-width="3"/>
+        <!-- Arms -->
+        <ellipse cx="46" cy="130" rx="9" ry="13" fill="#dda0dd" stroke="#a0a0a0" stroke-width="2.5"/>
+        <ellipse cx="154" cy="128" rx="9" ry="13" fill="#dda0dd" stroke="#a0a0a0" stroke-width="2.5"/>
+      </svg>
+      <p class="desc">Насыщенный фиолетовый, контрастные пятна, яркие бирюзовые глаза. Торчащие волоски, асимметричные уши, перекошенный рот.</p>
+      <p class="anim">Быстро моргает, резкие повороты, «теряется» и крутится</p>
+    </div>
+
+    <!-- Weirdo Level 3: Adult -->
+    <div class="level-card">
+      <span class="level-badge badge-3">Уровень 3</span>
+      <h3>Взрослый</h3>
+      <p class="size">33–39 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: vivid purple with shimmer, thin limbs, very big head -->
+        <ellipse cx="100" cy="135" rx="48" ry="52" fill="#cc66cc" stroke="#808080" stroke-width="5"/>
+        <!-- Dark blue torn spots, chaotic -->
+        <ellipse cx="70" cy="130" rx="14" ry="10" fill="#2a3a6a" opacity="0.7"/>
+        <ellipse cx="130" cy="148" rx="16" ry="11" fill="#2a3a6a" opacity="0.65"/>
+        <ellipse cx="100" cy="160" rx="10" ry="8" fill="#2a3a6a" opacity="0.6"/>
+        <ellipse cx="85" cy="155" rx="8" ry="6" fill="#2a3a6a" opacity="0.5"/>
+        <!-- Head: VERY big (nелепые пропорции) -->
+        <ellipse cx="100" cy="52" rx="50" ry="46" fill="#cc66cc" stroke="#808080" stroke-width="5"/>
+        <!-- Eyes: HUGE, shocked expression, saturated turquoise with large white highlights -->
+        <ellipse cx="74" cy="44" rx="28" ry="32" fill="#20c8b8" stroke="#808080" stroke-width="3"/>
+        <circle cx="74" cy="44" r="14" fill="#003830"/>
+        <circle cx="74" cy="44" r="7" fill="#000"/>
+        <circle cx="82" cy="35" r="7" fill="#fff" opacity="0.95"/>
+        <circle cx="68" cy="50" r="4" fill="#fff" opacity="0.6"/>
+        <ellipse cx="126" cy="42" rx="30" ry="34" fill="#20c8b8" stroke="#808080" stroke-width="3"/>
+        <circle cx="126" cy="42" r="15" fill="#003830"/>
+        <circle cx="126" cy="42" r="7.5" fill="#000"/>
+        <circle cx="134" cy="33" r="7" fill="#fff" opacity="0.95"/>
+        <circle cx="120" cy="48" r="4" fill="#fff" opacity="0.6"/>
+        <!-- Bright pink shadows: sharp -->
+        <ellipse cx="74" cy="76" rx="16" ry="6" fill="#ff69b4" opacity="0.7"/>
+        <ellipse cx="126" cy="74" rx="17" ry="6" fill="#ff69b4" opacity="0.7"/>
+        <!-- Asymmetrical mouth: open, shocked -->
+        <ellipse cx="100" cy="88" rx="9" ry="7" fill="#b06080" stroke="#808080" stroke-width="2.5"/>
+        <!-- Hairs: sticking in all directions -->
+        <line x1="75" y1="12" x2="65" y2="0" stroke="#f5f5a0" stroke-width="3" stroke-linecap="round"/>
+        <line x1="90" y1="10" x2="85" y2="-2" stroke="#f5f5a0" stroke-width="3" stroke-linecap="round"/>
+        <line x1="105" y1="9" x2="110" y2="-3" stroke="#f5f5a0" stroke-width="3" stroke-linecap="round"/>
+        <line x1="120" y1="11" x2="130" y2="0" stroke="#f5f5a0" stroke-width="3" stroke-linecap="round"/>
+        <line x1="135" y1="15" x2="148" y2="5" stroke="#f5f5a0" stroke-width="3" stroke-linecap="round"/>
+        <!-- Mismatched ears: one pointy, one flat -->
+        <polygon points="52,38 30,18 55,32" fill="#cc66cc" stroke="#808080" stroke-width="3"/>
+        <ellipse cx="148" cy="38" rx="14" ry="7" fill="#cc66cc" stroke="#808080" stroke-width="3"/>
+        <!-- Thin limbs (nелепые пропорции) -->
+        <ellipse cx="50" cy="135" rx="7" ry="16" fill="#cc66cc" stroke="#808080" stroke-width="3"/>
+        <ellipse cx="150" cy="132" rx="7" ry="16" fill="#cc66cc" stroke="#808080" stroke-width="3"/>
+        <!-- Thin feet -->
+        <ellipse cx="82" cy="186" rx="12" ry="6" fill="#cc66cc" stroke="#808080" stroke-width="3.5"/>
+        <ellipse cx="120" cy="186" rx="12" ry="6" fill="#cc66cc" stroke="#808080" stroke-width="3.5"/>
+      </svg>
+      <p class="desc">Яркий фиолетовый с переливами, тёмно-синие рваные пятна, жирный рваный контур. Огромные ошарашенные глаза, тонкие конечности.</p>
+      <p class="anim">Замирает в нелепых позах, резко дёргается, прячет лицо в лапах</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== Reeko ==================== -->
+<div class="character-section">
+  <h2>Reeko</h2>
+  <p class="trait">Эксцентричный, изобретательный, любит странные идеи</p>
+  <div class="level-row">
+
+    <!-- Reeko Level 1: Baby -->
+    <div class="level-card">
+      <span class="level-badge badge-1">Уровень 1</span>
+      <h3>Малыш</h3>
+      <p class="size">12–16 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: muted dark blue, compact, slightly "crumpled" -->
+        <ellipse cx="100" cy="122" rx="50" ry="52" fill="#2a3590" stroke="#111" stroke-width="2"/>
+        <!-- Soft purple shimmer (subtle) -->
+        <ellipse cx="80" cy="105" rx="14" ry="10" fill="#6a2a8a" opacity="0.2"/>
+        <ellipse cx="120" cy="135" rx="15" ry="11" fill="#6a2a8a" opacity="0.18"/>
+        <!-- Small neat mustard spots -->
+        <circle cx="70" cy="130" r="6" fill="#c4a020" opacity="0.5"/>
+        <circle cx="130" cy="115" r="7" fill="#c4a020" opacity="0.45"/>
+        <!-- Head: round, soft features, slight asymmetry -->
+        <ellipse cx="100" cy="62" rx="42" ry="38" fill="#2a3590" stroke="#111" stroke-width="2"/>
+        <!-- Eyes: slightly asymmetrical, soft -->
+        <ellipse cx="80" cy="55" rx="13" ry="15" fill="#fff" stroke="#111" stroke-width="1.5"/>
+        <circle cx="81" cy="56" r="6.5" fill="#3a1070"/>
+        <circle cx="81" cy="56" r="3.2" fill="#000"/>
+        <circle cx="84" cy="52" r="2" fill="#fff" opacity="0.7"/>
+        <ellipse cx="120" cy="53" rx="11" ry="13" fill="#fff" stroke="#111" stroke-width="1.5"/>
+        <circle cx="121" cy="54" r="5.5" fill="#3a1070"/>
+        <circle cx="121" cy="54" r="2.8" fill="#000"/>
+        <circle cx="124" cy="50" r="2" fill="#fff" opacity="0.7"/>
+        <!-- Small smile, slightly crooked -->
+        <path d="M 85 78 Q 100 86 115 77" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+        <!-- Small teeth, slightly greyish -->
+        <rect x="88" y="78" width="7" height="6" rx="1.5" fill="#e8e8e0" stroke="#111" stroke-width="1"/>
+        <rect x="98" y="79" width="6" height="5" rx="1.5" fill="#e8e8e0" stroke="#111" stroke-width="1"/>
+        <rect x="108" y="78" width="7" height="6" rx="1.5" fill="#e8e8e0" stroke="#111" stroke-width="1"/>
+        <!-- Short hair tufts: pale red -->
+        <path d="M 82 30 Q 78 20 86 28" fill="#d05050" stroke="#111" stroke-width="1.5"/>
+        <path d="M 95 27 Q 97 16 103 27" fill="#d05050" stroke="#111" stroke-width="1.5"/>
+        <path d="M 110 29 Q 116 18 118 30" fill="#d05050" stroke="#111" stroke-width="1.5"/>
+        <!-- One eyebrow slightly raised -->
+        <path d="M 68 42 Q 80 38 90 42" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 112 40 Q 122 36 132 42" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+        <!-- Mismatched ears: one pointy, one flat -->
+        <polygon points="58,52 42,38 62,48" fill="#2a3590" stroke="#111" stroke-width="2"/>
+        <ellipse cx="142" cy="50" rx="10" ry="5" fill="#2a3590" stroke="#111" stroke-width="2"/>
+        <!-- Tiny feet -->
+        <ellipse cx="82" cy="172" rx="13" ry="6" fill="#2a3590" stroke="#111" stroke-width="2"/>
+        <ellipse cx="120" cy="172" rx="13" ry="6" fill="#2a3590" stroke="#111" stroke-width="2"/>
+        <!-- Tiny arms -->
+        <ellipse cx="52" cy="122" rx="7" ry="10" fill="#2a3590" stroke="#111" stroke-width="1.5"/>
+        <ellipse cx="148" cy="120" rx="7" ry="10" fill="#2a3590" stroke="#111" stroke-width="1.5"/>
+      </svg>
+      <p class="desc">Приглушённый тёмно-синий, мягкие пятна, бледно-красные короткие пучки. Асимметрия едва заметна. Плюшевый.</p>
+      <p class="anim">Переминается, теребит детали, тихо хихикает</p>
+    </div>
+
+    <!-- Reeko Level 2: Teen -->
+    <div class="level-card">
+      <span class="level-badge badge-2">Уровень 2</span>
+      <h3>Подросток</h3>
+      <p class="size">23–27 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: saturated dark blue, more angular, visible asymmetry -->
+        <ellipse cx="98" cy="120" rx="60" ry="62" fill="#1a237e" stroke="#000" stroke-width="4"/>
+        <!-- Purple shimmer patches (more visible) -->
+        <ellipse cx="68" cy="100" rx="18" ry="13" fill="#7b1fa2" opacity="0.4"/>
+        <ellipse cx="130" cy="140" rx="20" ry="14" fill="#7b1fa2" opacity="0.35"/>
+        <ellipse cx="108" cy="78" rx="12" ry="10" fill="#9c27b0" opacity="0.3"/>
+        <!-- Bigger, asymmetric mustard spots -->
+        <circle cx="58" cy="128" r="9" fill="#d4a017" opacity="0.75"/>
+        <circle cx="138" cy="108" r="12" fill="#d4a017" opacity="0.7"/>
+        <circle cx="88" cy="155" r="8" fill="#d4a017" opacity="0.65"/>
+        <!-- Head: slightly angular, more asymmetry -->
+        <ellipse cx="98" cy="58" rx="44" ry="40" fill="#1a237e" stroke="#000" stroke-width="4" transform="rotate(-2 98 58)"/>
+        <!-- Eyes: more asymmetrical -->
+        <ellipse cx="75" cy="50" rx="15" ry="17" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <circle cx="77" cy="52" r="8" fill="#4a148c"/>
+        <circle cx="77" cy="52" r="4" fill="#000"/>
+        <circle cx="81" cy="47" r="3" fill="#fff" opacity="0.8"/>
+        <ellipse cx="122" cy="47" rx="12" ry="14" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <circle cx="123" cy="48" r="6" fill="#4a148c"/>
+        <circle cx="123" cy="48" r="3" fill="#000"/>
+        <circle cx="126" cy="44" r="2.5" fill="#fff" opacity="0.8"/>
+        <!-- Crooked smile, sharper teeth -->
+        <path d="M 68 75 Q 98 95 130 72" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+        <rect x="75" y="75" width="10" height="10" rx="2" fill="#fff" stroke="#000" stroke-width="2"/>
+        <rect x="88" y="77" width="8" height="8" rx="2" fill="#fff" stroke="#000" stroke-width="2"/>
+        <rect x="100" y="78" width="11" height="11" rx="2" fill="#fff" stroke="#000" stroke-width="2"/>
+        <rect x="115" y="76" width="7" height="7" rx="2" fill="#fff" stroke="#000" stroke-width="2"/>
+        <!-- Longer hair: bright red, tufts -->
+        <path d="M 72 25 L 62 8 L 80 22 Z" fill="#ff1744" stroke="#000" stroke-width="2"/>
+        <path d="M 88 22 L 84 5 L 96 20 Z" fill="#ff1744" stroke="#000" stroke-width="2"/>
+        <path d="M 103 20 L 108 4 L 114 21 Z" fill="#ff1744" stroke="#000" stroke-width="2"/>
+        <path d="M 118 23 L 128 8 L 130 25 Z" fill="#ff1744" stroke="#000" stroke-width="2"/>
+        <!-- First "scratches" and small details -->
+        <line x1="55" y1="90" x2="65" y2="85" stroke="#000" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+        <!-- Silver strokes (new) -->
+        <line x1="140" y1="120" x2="150" y2="115" stroke="#c0c0c0" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        <!-- Mismatched ears -->
+        <polygon points="52,48 32,30 55,42" fill="#1a237e" stroke="#000" stroke-width="3"/>
+        <ellipse cx="145" cy="46" rx="12" ry="6" fill="#1a237e" stroke="#000" stroke-width="3"/>
+        <!-- Feet: mismatched -->
+        <ellipse cx="72" cy="182" rx="16" ry="8" fill="#1a237e" stroke="#000" stroke-width="3"/>
+        <ellipse cx="128" cy="182" rx="13" ry="7" fill="#1a237e" stroke="#000" stroke-width="3"/>
+        <!-- Arms -->
+        <ellipse cx="36" cy="118" rx="9" ry="13" fill="#1a237e" stroke="#000" stroke-width="2.5"/>
+        <ellipse cx="160" cy="115" rx="8" ry="12" fill="#1a237e" stroke="#000" stroke-width="2.5"/>
+      </svg>
+      <p class="desc">Насыщенный тёмно-синий, яркие горчичные пятна, ярко-красные волосы пучками. Серебристые штрихи, первые царапины.</p>
+      <p class="anim">Крутит детали, резкие движения, «чинит» невидимое</p>
+    </div>
+
+    <!-- Reeko Level 3: Adult -->
+    <div class="level-card">
+      <span class="level-badge badge-3">Уровень 3</span>
+      <h3>Взрослый</h3>
+      <p class="size">36–42 см</p>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body: vivid dark blue, "unassembled" look, strong asymmetry -->
+        <ellipse cx="96" cy="118" rx="68" ry="72" fill="#0d1560" stroke="#000" stroke-width="6"/>
+        <!-- Purple shimmer (vivid) -->
+        <ellipse cx="62" cy="95" rx="22" ry="16" fill="#9c27b0" opacity="0.5"/>
+        <ellipse cx="135" cy="140" rx="24" ry="16" fill="#9c27b0" opacity="0.45"/>
+        <ellipse cx="105" cy="72" rx="14" ry="11" fill="#ba68c8" opacity="0.4"/>
+        <!-- Chaotic mustard spots -->
+        <circle cx="52" cy="125" r="11" fill="#d4a017" opacity="0.85"/>
+        <circle cx="142" cy="105" r="14" fill="#d4a017" opacity="0.8"/>
+        <circle cx="85" cy="158" r="9" fill="#d4a017" opacity="0.75"/>
+        <circle cx="120" cy="165" r="7" fill="#d4a017" opacity="0.7"/>
+        <!-- Head: strongly asymmetric, tilted -->
+        <ellipse cx="96" cy="52" rx="46" ry="42" fill="#0d1560" stroke="#000" stroke-width="6" transform="rotate(-5 96 52)"/>
+        <!-- Eyes: very asymmetrical -->
+        <ellipse cx="72" cy="44" rx="17" ry="19" fill="#fff" stroke="#000" stroke-width="3.5"/>
+        <circle cx="74" cy="46" r="9" fill="#4a148c"/>
+        <circle cx="74" cy="46" r="4.5" fill="#000"/>
+        <circle cx="79" cy="40" r="3.5" fill="#fff" opacity="0.9"/>
+        <ellipse cx="124" cy="40" rx="13" ry="15" fill="#fff" stroke="#000" stroke-width="3.5"/>
+        <circle cx="125" cy="41" r="6.5" fill="#4a148c"/>
+        <circle cx="125" cy="41" r="3.2" fill="#000"/>
+        <circle cx="129" cy="36" r="3" fill="#fff" opacity="0.9"/>
+        <!-- Wide crooked grin, uneven teeth -->
+        <path d="M 60 70 Q 96 100 135 67" fill="#0a0a20" stroke="#000" stroke-width="4"/>
+        <rect x="68" y="70" width="12" height="13" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <rect x="84" y="73" width="9" height="9" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <rect x="97" y="75" width="13" height="14" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <rect x="114" y="72" width="8" height="8" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <rect x="125" y="70" width="10" height="11" rx="2" fill="#fff" stroke="#000" stroke-width="2.5"/>
+        <!-- Big hair tufts: bright red, wild -->
+        <path d="M 68 18 L 55 0 L 75 15 Z" fill="#ff1744" stroke="#000" stroke-width="3"/>
+        <path d="M 84 14 L 78 -2 L 94 12 Z" fill="#ff1744" stroke="#000" stroke-width="3"/>
+        <path d="M 100 12 L 105 -4 L 114 13 Z" fill="#ff1744" stroke="#000" stroke-width="3"/>
+        <path d="M 116 15 L 128 0 L 130 17 Z" fill="#ff1744" stroke="#000" stroke-width="3"/>
+        <path d="M 130 20 L 145 5 L 140 22 Z" fill="#ff1744" stroke="#000" stroke-width="3"/>
+        <path d="M 142 25 L 155 12 L 150 28 Z" fill="#ff1744" stroke="#000" stroke-width="3"/>
+        <!-- Scratches and "worn" marks -->
+        <line x1="50" y1="85" x2="62" y2="78" stroke="#000" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+        <line x1="52" y1="92" x2="60" y2="88" stroke="#000" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+        <path d="M 145 95 Q 152 88 158 96" fill="none" stroke="#000" stroke-width="2.5" opacity="0.5"/>
+        <!-- Silver strokes (prominent) -->
+        <line x1="138" y1="118" x2="152" y2="112" stroke="#c0c0c0" stroke-width="3" stroke-linecap="round"/>
+        <line x1="140" y1="126" x2="154" y2="122" stroke="#c0c0c0" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Mismatched ears: one very pointy, one flat -->
+        <polygon points="48,42 22,18 52,36" fill="#0d1560" stroke="#000" stroke-width="4"/>
+        <ellipse cx="148" cy="42" rx="14" ry="7" fill="#0d1560" stroke="#000" stroke-width="4"/>
+        <!-- Feet: very mismatched -->
+        <ellipse cx="68" cy="188" rx="20" ry="10" fill="#0d1560" stroke="#000" stroke-width="4"/>
+        <ellipse cx="132" cy="185" rx="15" ry="8" fill="#0d1560" stroke="#000" stroke-width="4"/>
+        <!-- Arms: mismatched -->
+        <ellipse cx="30" cy="115" rx="11" ry="16" fill="#0d1560" stroke="#000" stroke-width="3.5"/>
+        <ellipse cx="165" cy="110" rx="9" ry="13" fill="#0d1560" stroke="#000" stroke-width="3.5"/>
+      </svg>
+      <p class="desc">Глубокий тёмно-синий, хаотичные пятна, крупные красные пучки. Неровные зубы, царапины, серебристые штрихи. «Несобранный» вид.</p>
+      <p class="anim">Делает странные движения, «чинит» воздух, изобретает</p>
+    </div>
+
+  </div>
+</div>
