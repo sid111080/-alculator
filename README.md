@@ -5,8 +5,10 @@
 Мобильное приложение по повышению финансовой грамотности детей и молодежи Москвы.
 Приложение разработано в Qwen code cli+ Qwen3.8-27B-Q4_0. Все запушено на сервере llama.cpp на локальном ноутбуке.
 
-<img src="pet1.png" alt="Preview" width="30%">
-<img src="pet2.png" alt="Preview" width="30%">
-<img src="pet3.png" alt="Preview" width="30%">
+<p>
+  <img src="pet1.png" alt="Preview" width="30%">
+  <img src="pet2.png" alt="Preview" width="30%">
+  <img src="pet3.png" alt="Preview" width="30%">
+</p>
 
 Есть некоторые баги, при наличии времени буду исправлять.
