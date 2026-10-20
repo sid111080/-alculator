@@ -6,7 +6,7 @@ import '../../core/models/pet_character.dart';
 import '../../core/models/player_profile.dart';
 import '../../core/services/game_engine.dart';
 import '../../core/services/storage_service.dart';
-import '../../widgets/fum.dart';
+import '../../widgets/animated_pet.dart';
 import '../onboarding/onboarding_screen.dart';
 
 /// Главный экран — HUD v2: питомец в центре (увеличен на 70%),
@@ -19,10 +19,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> {
   late final PlayerProfile _profile;
-  late final AnimationController _breathe;
 
   @override
   void initState() {
@@ -32,17 +30,7 @@ class _HomeScreenState extends State<HomeScreen>
           playerName: 'Гость',
           character: PetCharacter.gapTooth,
         );
-    _breathe = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 2600),
-    )..repeat(reverse: true);
     _checkDailyBonus();
-  }
-
-  @override
-  void dispose() {
-    _breathe.dispose();
-    super.dispose();
   }
 
   Future<void> _checkDailyBonus() async {
@@ -269,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen>
               Positioned(
                 left: cx + radius * math.cos(_angleFor(i)) - btnHalf,
                 top: cy + radius * math.sin(_angleFor(i)) - btnHalf,
-                child: _buildOrbitButton(buttons[i]),
+                child: _OrbitButton(def: buttons[i]),
               ),
             ],
           ],
@@ -281,32 +269,27 @@ class _HomeScreenState extends State<HomeScreen>
   /// Угол i-й кнопки (в радианах). 6 кнопок → шаг 60°, старт с верха (−90°).
   double _angleFor(int i) => -math.pi / 2 + i * (2 * math.pi / 6);
 
-  // ─── Питомец (увеличен на 70%: 132 → 224) ───
+  // ─── Питомец (увеличен на 70%: 132 → 224) с анимацией по персонажу ───
   Widget _buildPet(PetCharacter char) {
-    final scale = Tween<double>(begin: 0.98, end: 1.02).animate(
-      CurvedAnimation(parent: _breathe, curve: Curves.easeInOut),
-    );
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        ScaleTransition(
-          scale: scale,
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: char.color.withValues(alpha: 0.35),
-                  blurRadius: 40,
-                  offset: const Offset(0, 16),
-                ),
-              ],
-            ),
-            child: FumPetCircle(
-              svgAsset: char.svgAssetForStage(_profile.petStage),
-              size: 224,
-              color: char.color,
-            ),
+        Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: char.color.withValues(alpha: 0.35),
+                blurRadius: 40,
+                offset: const Offset(0, 16),
+              ),
+            ],
+          ),
+          child: AnimatedPet(
+            character: char,
+            stage: _profile.petStage,
+            size: 224,
+            color: char.color,
           ),
         ),
         const SizedBox(height: 4),
@@ -337,84 +320,107 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  // ─── Орбитальная кнопка (круглая иконка + подпись) ───
-  Widget _buildOrbitButton(_OrbitBtnDef def) {
+}
+
+/// Орбитальная кнопка с анимацией увеличения на 20% при нажатии.
+class _OrbitButton extends StatefulWidget {
+  const _OrbitButton({required this.def});
+  final _OrbitBtnDef def;
+
+  @override
+  State<_OrbitButton> createState() => _OrbitButtonState();
+}
+
+class _OrbitButtonState extends State<_OrbitButton> {
+  bool _pressed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final def = widget.def;
     return GestureDetector(
+      onTapDown: (_) => setState(() => _pressed = true),
+      onTapUp: (_) => setState(() => _pressed = false),
+      onTapCancel: () => setState(() => _pressed = false),
       onTap: def.onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Круглая иконка
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Container(
-                width: 52,
-                height: 52,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [def.color, def.color.withValues(alpha: 0.7)],
+      child: AnimatedScale(
+        scale: _pressed ? 1.2 : 1.0,
+        duration: const Duration(milliseconds: 120),
+        curve: Curves.easeOut,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Круглая иконка
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  width: 52,
+                  height: 52,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [def.color, def.color.withValues(alpha: 0.7)],
+                    ),
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: def.color.withValues(alpha: 0.3),
+                        blurRadius: 12,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
                   ),
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: def.color.withValues(alpha: 0.3),
-                      blurRadius: 12,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
+                  child: Center(
+                    child: Text(def.icon, style: const TextStyle(fontSize: 22)),
+                  ),
                 ),
-                child: Center(
-                  child: Text(def.icon, style: const TextStyle(fontSize: 22)),
-                ),
-              ),
-              // Бейдж-уведомление
-              if (def.badge != null)
-                Positioned(
-                  top: -2,
-                  right: -2,
-                  child: Container(
-                    width: 18,
-                    height: 18,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFEF4444),
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white, width: 2),
-                    ),
-                    child: Center(
-                      child: Text(
-                        def.badge!,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w700,
+                // Бейдж-уведомление
+                if (def.badge != null)
+                  Positioned(
+                    top: -2,
+                    right: -2,
+                    child: Container(
+                      width: 18,
+                      height: 18,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFEF4444),
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
+                      child: Center(
+                        child: Text(
+                          def.badge!,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-            ],
-          ),
-          const SizedBox(height: 3),
-          // Подпись
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.85),
-              borderRadius: BorderRadius.circular(8),
+              ],
             ),
-            child: Text(
-              def.label,
-              style: const TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
-                color: AppTheme.textPrimary,
+            const SizedBox(height: 3),
+            // Подпись
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.85),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                def.label,
+                style: const TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                  color: AppTheme.textPrimary,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

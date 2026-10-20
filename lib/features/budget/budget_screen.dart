@@ -47,14 +47,17 @@ class _BudgetScreenState extends State<BudgetScreen> {
       _optional = existingPlan.optionalAmount;
       _savings = existingPlan.savingsAmount;
     } else {
-      final b = (_profile.balance).clamp(30, 999);
+      // «Доступно» = фактический баланс кошелька (совпадает с главной).
+      final b = _profile.balance;
       _required = (b * 0.5) ~/ 1;
       _optional = (b * 0.2) ~/ 1;
       _savings = (b * 0.3) ~/ 1;
     }
   }
 
-  int get _budget => (_profile.balance + (_plan?.totalAllocated ?? 0)).clamp(30, 999);
+  /// Доступный бюджет = текущий баланс кошелька.
+  /// Совпадает с кошельком на главной, чтобы ребёнок видел одно и то же число.
+  int get _budget => _profile.balance;
   int get _allocated => _required + _optional + _savings;
   int get _remaining => _budget - _allocated;
 
