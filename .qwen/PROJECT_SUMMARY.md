@@ -52,7 +52,15 @@ Redesign the main (home) screen of the "Питомец Финни" (Finny Pet) F
 
 7. **Added press-scale animation to orbit buttons** — converted buttons to StatefulWidget `_OrbitButton` with `AnimatedScale`: scales to 1.2 (+20%) on `onTapDown`, back to 1.0 on `onTapUp`/`onTapCancel`, 120ms easeOut.
 
-**Verification after each change:** `flutter analyze` clean, all 12 tests pass, release APK rebuilt (53 MB).
+8. **Created app icon** — designed `app_icon.svg` (Reeko character on warm squircle background, gradient `#FFF6DE→#FFE58F`), rasterized via `qlmanage` (no rsvg-convert/ImageMagick/cairosvg on machine) to PNG at 48/72/96/144/192px → replaced all `android/app/src/main/res/mipmap-*/ic_launcher.png`, plus 512×512 for RuStore. Source SVG kept at `.qwen/tmp/icon/app_icon.svg`.
+
+9. **HUD v3 — mood + juice (core UX improvements).** Created `lib/core/models/pet_mood.dart` (`PetMood` enum: happy/neutral/hungry/dirty/bored + `computeMood()` from hunger/fun/cleanliness). Extended `AnimatedPet` with `mood` param: happy → energetic (×1.3 amplitude, faster), needy → sluggish (×0.55, slower). Added juice to `home_screen.dart`: pet "pop" (1.0→1.12→0.96→1.0), flying emojis (5, fade+rise), balance pulse.
+
+10. **Reverted HUD v3 layout change (user rejected).** First attempt replaced the 6-button circular orbit with 3 fan buttons at bottom + chips in header + speech bubble above pet. User: "ты испортил меню вокруг питомца и самого питомца". **Restored the approved HUD2 layout** (6 orbiting buttons via `LayoutBuilder`+trig) and re-added mood/juice *within* it: mood shown as small emoji next to pet name (not a speech bubble — that conflicted with top orbit buttons), balance pulse on the balance orbit button. Saved feedback memory: never restructure the approved orbit layout without explicit approval.
+
+**Verification after each change:** `flutter analyze` clean, all 12 tests pass, release APK rebuilt (53.1 MB).
+
+**Process cleanup:** Gradle daemon stopped by PID; no lingering flutter/dart/gradle processes (verified empty).
 
 ## Current Plan
 
@@ -62,13 +70,21 @@ Redesign the main (home) screen of the "Питомец Финни" (Finny Pet) F
 4. [DONE] Fix wallet/budget balance consistency
 5. [DONE] Per-character Level 1 pet animations (continuous, via AnimatedBuilder)
 6. [DONE] Press-scale (+20%) animation on orbit buttons
-7. [IN PROGRESS] User verifying latest APK on physical device
-8. [TODO] Await user feedback (button positions/sizes/colors, animation feel)
-9. [TODO] Possibly add Level 2 and Level 3 pet animations (currently only Level 1 has per-character behavior; others use base breathing)
+7. [DONE] App icon (Reeko on warm squircle) → all mipmap sizes + 512 for RuStore
+8. [DONE] Build release APK with new icon (53.1 MB)
+9. [DONE] HUD v3: mood model + AnimatedPet mood param + juice (pop, flying emojis, balance pulse)
+10. [DONE] Reverted layout restructure (user rejected 3-fan+chips); restored 6-button orbit + mood/juice within it
+11. [DONE] Stop lingering processes; no leftover
+12. [DONE] **Fixed grey rectangle on home screen (right side).** Two earlier guesses (container shadow size; adding a transparent gradient stop) did NOT fix it. Diagnosed properly via a temporary render-tree dump test (`test/home_diag_test.dart`, since removed) that listed every `RenderDecoratedBox` with global coords/size/color/shape/gradient. Found box [4]: the orbit-area `RadialGradient` lived in `Positioned.fill` = a **390×782 rectangular** box. The radial circle (radius 0.9 ≈ 351px) is *wider than half the box width* (195px), so it gets **clipped by the rectangle's left/right edges** → hard vertical edges = the "grey rectangle". The HTML mockup had the gradient in a 320×320 *circle*; the Flutter port wrongly put it in the full zone. **Fix:** put the gradient in a **square** box (`side = min(w,h)`, centered) with a transparent stop at the edge (stops `[0, 0.6, 1.0]`, radius 0.5). Dump confirmed box [4] is now 390×390. Lesson: a RadialGradient in a non-square box clips to a rectangle.
+13. [TODO] Await user feedback on restored layout (mood emoji, juice feel)
+14. [TODO] Next improvement block: Gameplay cycle (budget as piggy-bank metaphor + safe failure + difficulty by stage) OR Engagement (mini-game + streak + badges)
+15. [TODO] Possibly add Level 2 and Level 3 pet animations (currently only Level 1 has per-character behavior; others use base breathing)
 
 **Note:** The bottom NavigationBar (7 tabs) lives in `MainShell` in `lib/app/routes.dart` and was intentionally left unchanged. If the user wants orbiting buttons to replace bottom-nav tabs, that's a separate change.
+
+**Critical constraint (saved to memory):** Never restructure the approved 6-button circular orbit layout without explicit user approval. Add features *within* the existing layout.
 
 ---
 
 ## Summary Metadata
-**Update time**: 2026-10-20T09:35:55.886Z
+**Update time**: 2026-10-21T12:00:00.000Z

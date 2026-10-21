@@ -70,7 +70,7 @@ class MainShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: navigationShell,
+      body: SwipeRing(navigationShell: navigationShell),
       bottomNavigationBar: Container(
         // Тонкая верхняя граница (HUD-стиль)
         decoration: const BoxDecoration(
@@ -144,5 +144,49 @@ class MainShell extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// Экраны кольце — свайпо влево/право пераитсь по этой цикле круговорм
+/// (послед → первь). Must match the StatefulShellRoute branches and the
+/// NavigationBar destinations above.
+const int ringSize = 7;
+
+/// Minimum horizontal drag distance (logical px) that counts as a swipe.
+const double _kSwipeMinDistance = 80;
+
+/// Свайпо-кольцо: горизонтале пан на any screen of the ring switches the
+/// branch. Swipe left → next screen, swipe right → previous screen.
+class SwipeRing extends StatefulWidget {
+  const SwipeRing({super.key, required this.navigationShell});
+
+  final StatefulNavigationShell navigationShell;
+
+  @override
+  State<SwipeRing> createState() => _SwipeRingState();
+}
+
+class _SwipeRingState extends State<SwipeRing> {
+  double _dx = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onHorizontalDragStart: (_) => _dx = 0,
+      onHorizontalDragUpdate: (data) => _dx += data.delta.dx,
+      onHorizontalDragEnd: (_) => _commitSwipe(),
+      child: widget.navigationShell,
+    );
+  }
+
+  void _commitSwipe() {
+    if (_dx.abs() < _kSwipeMinDistance) return;
+    final dir = _dx < 0 ? 1 : -1;
+    final current = widget.navigationShell.currentIndex;
+    final next = (current + dir + ringSize) % ringSize;
+    if (next != current) {
+      widget.navigationShell.goBranch(next);
+    }
+    _dx = 0;
   }
 }

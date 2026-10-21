@@ -1,0 +1,28 @@
+=== HomeScreen RenderDecoratedBox dump (logical 390x844) ===
+[1] @(239,22) 99x24 color=Color(alpha: 1.0000, red: 0.8784, green: 0.9686, blue: 0.9804, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(20.0) grad=none
+[2] @(239,22) 99x24 color=Color(alpha: 1.0000, red: 0.8784, green: 0.9686, blue: 0.9804, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(20.0) grad=none
+[3] @(346,20) 28x28 color=Color(alpha: 1.0000, red: 0.8980, green: 0.8980, blue: 0.9176, colorSpace: ColorSpace.sRGB) shape=circle radius=none grad=none
+[4] @(0,258) 390x390 color=null shape=RECT radius=none grad=RadialGradient
+      radial: colors=[Color(alpha: 1.0000, red: 1.0000, green: 0.9373, blue: 0.6471, colorSpace: ColorSpace.sRGB), Color(alpha: 1.0000, red: 1.0000, green: 0.8980, blue: 0.5608, colorSpace: ColorSpace.sRGB), Color(alpha: 0.0000, red: 1.0000, green: 0.8980, blue: 0.5608, colorSpace: ColorSpace.sRGB)] stops=[0.0, 0.6, 1.0] r=0.5 c=Alignment.center
+[5] @(83,341) 224x224 color=null shape=circle radius=none grad=none
+[6] @(100,334) 224x224 color=Color(alpha: 0.1200, red: 0.2902, green: 0.5647, blue: 0.8510, colorSpace: ColorSpace.sRGB) shape=circle radius=none grad=none
+[7] @(83,556) 224x23 color=Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(12.0) grad=none
+[8] @(83,556) 224x23 color=Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(12.0) grad=none
+[9] @(83,556) 224x23 color=Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(12.0) grad=none
+[10] @(317,346) 52x52 color=null shape=circle radius=none grad=LinearGradient
+[11] @(353,344) 18x18 color=Color(alpha: 1.0000, red: 0.9373, green: 0.2667, blue: 0.2667, colorSpace: ColorSpace.sRGB) shape=circle radius=none grad=none
+[12] @(305,401) 78x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[13] @(305,401) 78x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[14] @(305,505) 52x52 color=null shape=circle radius=none grad=LinearGradient
+[15] @(307,560) 47x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[16] @(307,560) 47x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[17] @(190,584) 52x52 color=null shape=circle radius=none grad=LinearGradient
+[18] @(167,639) 98x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[19] @(167,639) 98x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[20] @(57,505) 52x52 color=null shape=circle radius=none grad=LinearGradient
+[21] @(29,560) 108x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[22] @(29,560) 108x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[23] @(42,346) 52x52 color=null shape=circle radius=none grad=LinearGradient
+[24] @(29,401) 78x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+[25] @(29,401) 78x18 color=Color(alpha: 0.8500, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) shape=RECT radius=BorderRadius.circular(8.0) grad=none
+total decorated boxes: 25
